@@ -8,7 +8,8 @@ import java.util.Scanner;
  */
 public class ArrayQueueDemo {
     public static void main(String[] args) {
-        ArrayQueue arrayQueue = new ArrayQueue(3);
+//        ArrayQueue arrayQueue = new ArrayQueue(3);
+        ArrayCircleQueue arrayQueue = new ArrayCircleQueue(3);
         System.out.println("a : 增添数据， g: 获取数据，h:获取头部数据，e: 退出程序");
         boolean flag = true;
         char code;

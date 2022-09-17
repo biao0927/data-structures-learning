@@ -3,7 +3,7 @@ package com.biao.queue;
 /**
  * 使用数组模拟队列。
  */
-public class ArrayQueue {
+public class ArrayQueue implements Queue {
     /**
      * 队列前端。
      */
@@ -38,6 +38,7 @@ public class ArrayQueue {
      *
      * @return true is empty,false is not empty
      */
+    @Override
     public boolean isEmpty() {
         return this.front == this.rear;
     }
@@ -47,6 +48,7 @@ public class ArrayQueue {
      *
      * @return true is full.
      */
+    @Override
     public boolean isFull() {
         return this.rear == maxSize;
     }
@@ -56,17 +58,20 @@ public class ArrayQueue {
      *
      * @param value 增加的值
      */
+    @Override
     public void addQueue(int value) {
         if (isFull()) {
             throw new RuntimeException("队列已满，增加失败！");
         }
         queueData[this.rear++] = value;
+        System.out.println("添加数据成功！");
     }
 
     /**
      * 从队列里面获取数据。
      * @return 获取的数值
      */
+    @Override
     public int getQueue(){
         if(isEmpty()){
             throw new RuntimeException("队列为空，获取数据失败！");
@@ -78,6 +83,7 @@ public class ArrayQueue {
      * 获取队列头部的数据，不会出队列。
      * @return 头部数据的值。
      */
+    @Override
     public int getHead(){
         if(isEmpty()){
             throw new RuntimeException("队列为空，获取头部数据失败！");
